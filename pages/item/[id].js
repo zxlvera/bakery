@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ProductsContext } from '../../context';
 import Button from '../../components/Button';
 import { getQty, addQty, subtractQty } from '../../lib/handleQty';
@@ -11,14 +12,22 @@ const Item = () => {
   const appContext = useContext(ProductsContext);
   const { products } = appContext;
 
-  let item = products.filter((x) => x.id === id);
-  item = item[0];
+  let item = { name: 'empty', src: '', qty: 0 };
+  if (id) {
+    item = products.find((x) => x.id === id);
+  }
 
   return (
     <div className="container mx-auto my-4 px-8 py-12 lg:px-20">
       <div className="md:flex md:items-center">
-        <div className="w-full h-64 md:w-1/2 lg:h-96">
-          <img className="h-full w-full rounded-md object-cover max-w-lg mx-auto" src={item.src} alt="Nike Air" />
+        <div className="w-full h-64 md:w-1/2 lg:h-96 relative">
+          <Image
+            className="h-full w-full rounded-md object-cover max-w-lg mx-auto"
+            src={item.src ? item.src : ''}
+            alt="Nike Air"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
         <div className="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
           <h3 className="text-gray-700 uppercase text-lg">{item.name}</h3>
