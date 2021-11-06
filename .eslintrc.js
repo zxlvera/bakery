@@ -15,7 +15,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react',
+    '@next/next/recommended',
   ],
   rules: {
     // suppress errors for missing 'import React' in files
