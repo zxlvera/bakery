@@ -1,0 +1,83 @@
+[
+      {
+        "id": "1",
+        "type": "croissants",
+        "src": "/img/products/croissants-1.jpg",
+        "name": "Orignal Croissant",
+        "price": "12",
+        "rating": "4.9"
+      },
+      { 
+        "id": "2",
+        "type": "croissants",
+        "src": "/img/products/croissants-2.jpg",
+        "name": "Chocolate Croissant",
+        "price": "12",
+        "rating": "4.7"
+      },
+      { 
+        "id": "3",
+        "type": "croissants",
+        "src": "/img/products/croissants-3.jpg",
+        "name": "Almond Croissant",
+        "price": "13",
+        "rating": "4.4"
+      },
+      { 
+        "id": "4",
+        "type": "croissants",
+        "src": "/img/products/croissants-4.jpg",
+        "name": "Trio Croissants",
+        "price": "30",
+        "rating": "4.5"
+      },
+      { 
+        "id": "5",
+        "type": "cupcakes",
+        "src": "/img/products/cupcakes-1.jpg",
+        "name": "Love Cupcake",
+        "price": "27",
+        "rating": "4.3"
+      },
+      { 
+        "id": "6",
+        "type": "cupcakes",
+        "src": "/img/products/cupcakes-2.jpg",
+        "name": "Fruit Cupcake",
+        "price": "25",
+        "rating": "4.5"
+      },
+      { 
+        "id": "7",
+        "type": "cupcakes",
+        "src": "/img/products/cupcakes-3.jpg",
+        "name": "GreenRose Cupcake",
+        "price": "30",
+        "rating": "4.8"
+      },
+      { 
+        "id": "8",
+        "type": "cookies",
+        "src": "/img/products/cookies-1.jpg",
+        "name": "Macarons",
+        "price": "12",
+        "rating": "4.1"
+      },
+      { 
+        "id": "9",
+        "type": "cookies",
+        "src": "/img/products/cookies-2.jpg",
+        "name": "Chocolate Cookies",
+        "price": "13",
+        "rating": "4.3"
+      },
+      { 
+        "id": "10",
+        "type": "cookies",
+        "src": "/img/products/cookies-3.jpg",
+        "name": "Gingerbread ",
+        "price": "20",
+        "rating": "3.5"
+      }
+]
+

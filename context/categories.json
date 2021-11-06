@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1, 
+    "name": "croissants", 
+    "current": false
+  },
+  {
+    "id": 2, 
+    "name": "cupcakes", 
+    "current": false
+  },
+  {
+    "id": 3, 
+    "name": "cookies", 
+    "current": false
+  }
+]
