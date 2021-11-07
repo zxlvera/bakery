@@ -2,7 +2,7 @@ import Button from './Button';
 
 const Hero = () => (
   <div className="bg-primary">
-    <div className="container mx-auto px-8">
+    <div className="container mx-auto">
       <main className="flex flex-col-reverse sm:flex-row jusitfy-between items-center py-12">
         <div className="sm:w-3/5 flex flex-col items-center sm:items-start text-center sm:text-left">
           <h1 className="uppercase text-4xl lg:text-6xl text-tertiary font-bold leading-none tracking-wide mb-2">Confectionery</h1>

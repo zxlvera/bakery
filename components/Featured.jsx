@@ -8,7 +8,7 @@ const Featured = () => {
   ];
 
   return (
-    <div className="container mx-auto px-8">
+    <div className="container mx-auto">
       <main className="py-16 grid grid-cols-auto-fit gap-4 w-full justify-items-center">
         {bakedList.map((bakes) => (
           <FeaturedCard key={bakes.id} bakes={bakes} />

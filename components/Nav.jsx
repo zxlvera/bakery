@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Popover, Transition } from '@headlessui/react';
 import { ProductsContext } from '../context';
@@ -27,10 +28,14 @@ const Nav = () => {
 
   return (
     <nav className="bg-neutral shadow">
-      <div className="container mx-auto px-8 py-3 md:flex md:justify-between md:items-center">
-        <div className="flex justify-between items-center">
-          <div>
-            <img className="w-16" src="/logo.svg" alt="My logo" />
+      <div className="container mx-auto py-3 md:flex md:justify-between md:items-center">
+        <div className="flex justify-between items-center relative">
+          <div className="w-10 h-10">
+            <Image
+              src="/logo.svg"
+              layout="fill"
+              alt="My logo"
+            />
           </div>
 
           <div className="flex md:hidden">
@@ -65,7 +70,7 @@ const Nav = () => {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Popover.Panel className="bg-neutral absolute z-50 -left-60">
+                <Popover.Panel className="bg-neutral absolute z-50 md:-left-20 lg:-left-60">
                   <div className="border-dotted border-2 w-64">
                     {cartItemsList.map((item) => (
                       <CheckoutPopover key={item.id} item={item} />

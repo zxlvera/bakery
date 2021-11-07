@@ -1,27 +1,34 @@
 import { useContext } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import filterData from '../lib/filterData';
 import { ProductsContext } from '../context';
+import { filterProducts } from '../lib/handleProducts';
 
 const FeaturedCard = ({ bakes }) => {
   const { src, title } = bakes;
   const appContext = useContext(ProductsContext);
-  const { setProducts } = appContext;
+  const { setProducts, setSubCategories } = appContext;
 
-  const handleClick = (title) => {
+  const handleClick = (e, title) => {
     setProducts(filterData(title));
+    e.target.value = title;
+    filterProducts(e, appContext);
   };
 
   return (
 
-    <div className="rounded-lg">
-      <div className="bg-neutral rounded-lg w-96">
-        <img
-          src={src}
-          alt=""
-          className="w-full h-48 object-cover transition duration-300 rounded-t-lg sm:h-56 opacity-80 hover:opacity-100"
-        />
-
+    <div className="rounded-lg hover:scale-105 hover:cursor-pointer">
+      <div className="bg-neutral rounded-lg w-96 flex flex-col">
+        <div className="relative h-40 rounded-lg">
+          <Image
+            src={src}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+            priority
+          />
+        </div>
         <div className="px-10 py-6 mb-10 text-center">
           <div className="mb-4 text-3xl font-bold text-tertiary uppercase">{title}</div>
           <span className="text-sm">
@@ -30,9 +37,11 @@ const FeaturedCard = ({ bakes }) => {
             officiis repudiandae! Culpa cum vel tenetur itaque eius provident voluptatum similique impedit?
           </span>
         </div>
-        <Link href="/shop">
-          <button onClick={() => handleClick(title)} className="w-full h-16 text-lg font-extrabold text-neutral transition duration-300 bg-tertiary rounded-b-lg hover:bg-secondary">VIEW MORE</button>
-        </Link>
+        <div>
+          <Link href="/shop" passHref>
+            <button onClick={(e) => handleClick(e, title)} className="w-full h-16 text-lg font-extrabold text-neutral transition duration-300 bg-tertiary rounded-b-lg hover:bg-secondary">VIEW MORE</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
