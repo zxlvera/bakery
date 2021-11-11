@@ -8,6 +8,7 @@ const ProductsProvider = (props) => {
   const [products, setProducts] = useState(data);
   const [subCategories, setSubCategories] = useState(categories);
   const [cartItemsList, setCartItemsList] = useState([]);
+  const [cartTotalQty, setCartTotalQty] = useState(0);
 
   return (
     <ProductsContext.Provider value={{
@@ -17,6 +18,8 @@ const ProductsProvider = (props) => {
       setSubCategories,
       cartItemsList,
       setCartItemsList,
+      cartTotalQty,
+      setCartTotalQty,
     }}
     >
       {props.children}

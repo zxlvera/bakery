@@ -1,12 +1,15 @@
 import { useContext } from 'react';
 import { ProductsContext } from '../context';
+import { setTotalQty } from '../lib/handleQty';
 
 const CheckoutPopover = ({ item }) => {
   const appContext = useContext(ProductsContext);
   const { cartItemsList, setCartItemsList } = appContext;
 
   const handleClick = (id) => {
-    setCartItemsList([...cartItemsList.filter((x) => x.id !== id)]);
+    const itemsList = cartItemsList.filter((x) => x.id !== id).slice();
+    setCartItemsList(itemsList);
+    setTotalQty(itemsList, appContext);
   };
 
   return (
@@ -22,7 +25,7 @@ const CheckoutPopover = ({ item }) => {
                 {item.price * item.qty}
               </div>
             </div>
-            <div onClick={() => handleClick(item.id)} className="flex flex-col w-18 font-medium items-end">
+            <div role="input" onClick={() => handleClick(item.id)} className="flex flex-col w-18 font-medium items-end">
               <div className="w-4 h-4 mb-6 hover:bg-red-200 rounded-full cursor-pointer text-red-700">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-trash-2 ">
                   <polyline points="3 6 5 6 21 6" />

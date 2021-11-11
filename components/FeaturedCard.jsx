@@ -1,18 +1,16 @@
 import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import filterData from '../lib/filterData';
 import { ProductsContext } from '../context';
 import { filterProducts } from '../lib/handleProducts';
 
 const FeaturedCard = ({ bakes }) => {
   const { src, title } = bakes;
   const appContext = useContext(ProductsContext);
-  const { setProducts, setSubCategories } = appContext;
 
   const handleClick = (e, title) => {
-    setProducts(filterData(title));
     e.target.value = title;
+    e.target.checked = true;
     filterProducts(e, appContext);
   };
 
