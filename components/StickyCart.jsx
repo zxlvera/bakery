@@ -40,7 +40,9 @@ const StickyCart = () => {
             </h1>
           </div>
           <Link href="/cart" passHref>
-            <Button text="Checkout" />
+            <div>
+              <Button text="Checkout" />
+            </div>
           </Link>
         </div>
       </Popover>

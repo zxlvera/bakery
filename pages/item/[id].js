@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ProductsContext } from '../../context';
 import { getQty, addToCart } from '../../lib/handleQty';
+import Button from '../../components/Button';
 
 const Item = () => {
   const router = useRouter();
@@ -43,15 +44,16 @@ const Item = () => {
           <div className="mt-2">
             <label className="text-gray-700 text-sm" htmlFor="count">Count:</label>
             <div className="flex items-center mt-1">
-              <button onClick={() => setQty(qty + 1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
-                <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              </button>
-              <span className="text-gray-700 text-lg mx-2">{qty}</span>
               <button onClick={() => setQty(qty > 0 ? qty - 1 : 0)} className="text-gray-500 focus:outline-none focus:text-gray-600">
                 <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </button>
+              <span className="text-gray-700 text-lg mx-2">{qty}</span>
+              <button onClick={() => setQty(qty + 1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
+                <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </button>
             </div>
           </div>
+          {/*
           <div className="mt-3">
             <label className="text-gray-700 text-sm" htmlFor="count">Color:</label>
             <div className="flex items-center mt-1">
@@ -60,12 +62,17 @@ const Item = () => {
               <button className="h-5 w-5 rounded-full bg-pink-600 mr-2 focus:outline-none" />
             </div>
           </div>
+      */}
           <div className="flex mt-6">
             <button onClick={() => addToCart(id, qty, appContext)} className="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none hover:bg-primary">
               <svg className="h-5 w-5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             </button>
           </div>
-          <Link href="/shop">Go back</Link>
+          <Link href="/shop" passHref>
+            <div className="w-32 opacity-60 hover:opacity-100">
+              <Button text="Go Back" className="text-secondary hover:text-lg hover:cursor-pointer" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

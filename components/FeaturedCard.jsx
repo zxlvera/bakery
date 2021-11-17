@@ -8,7 +8,7 @@ const FeaturedCard = ({ bakes }) => {
   const { src, title } = bakes;
   const appContext = useContext(ProductsContext);
 
-  const handleClick = (e, title) => {
+  const handleClick = (e) => {
     e.target.value = title;
     e.target.checked = true;
     filterProducts(e, appContext);
@@ -37,7 +37,7 @@ const FeaturedCard = ({ bakes }) => {
         </div>
         <div>
           <Link href="/shop" passHref>
-            <button onClick={(e) => handleClick(e, title)} className="w-full h-16 text-lg font-extrabold text-neutral transition duration-300 bg-tertiary rounded-b-lg hover:bg-secondary">VIEW MORE</button>
+            <button onClick={(e) => handleClick(e)} className="w-full h-16 text-lg font-extrabold text-neutral transition duration-300 bg-tertiary rounded-b-lg hover:bg-secondary">VIEW MORE</button>
           </Link>
         </div>
       </div>
