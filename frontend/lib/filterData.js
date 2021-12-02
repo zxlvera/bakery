@@ -1,5 +1,10 @@
-import data from '../context/data.json';
+const filterData = (title, appContext) => {
+  const {
+    products,
+  } = appContext;
 
-const filterData = (title) => data.filter((prod) => prod.type === title);
+  const filterProducts = products.slice().filter((prod) => prod.type === title);
+  return filterProducts;
+};
 
 export default filterData;

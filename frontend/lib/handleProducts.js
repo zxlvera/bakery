@@ -18,9 +18,9 @@ export const filterProducts = (e, appContext) => {
   setSubCategories(cat);
 
   if (e.target.checked) {
-    setProducts(filterData(name));
+    setProducts(filterData(name, appContext));
   } else {
-    setProducts([...sortProducts('default')]);
+    setProducts([...sortProducts('default', appContext)]);
   }
 };
 
@@ -34,5 +34,5 @@ export const sortProductsOptions = (e, appContext) => {
     cat[index].current = false;
   }
   setSubCategories(cat);
-  setProducts([...sortProducts(e.target.text)]);
+  setProducts([...sortProducts(e.target.text, appContext)]);
 };

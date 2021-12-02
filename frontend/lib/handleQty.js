@@ -3,8 +3,8 @@ export const getQty = (id, appContext) => {
     cartItemsList,
   } = appContext;
 
-  if (cartItemsList.some((item) => item.id === parseInt(id))) {
-    return cartItemsList.filter((item) => item.id === parseInt(id))[0].qty;
+  if (cartItemsList.some((item) => item.id === id)) {
+    return cartItemsList.filter((item) => item.id === id)[0].qty;
   }
   return 0;
 };
@@ -31,9 +31,9 @@ export const addToCart = (id, qty, appContext) => {
 
   // Update cart items list
   const itemsList = cartItemsList.slice();
-  const item = products.find((x) => x.id === parseInt(id));
+  const item = products.find((x) => x.id === id);
   item.qty = qty;
-  if (!cartItemsList.some((x) => x.id === parseInt(id))) {
+  if (!cartItemsList.some((x) => x.id === id)) {
     itemsList.push(item);
   }
   setCartItemsList(itemsList);

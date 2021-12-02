@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-// var port = process.env.PORT || 4000
+var port = process.env.PORT || 4000
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -40,6 +40,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// app.listen(port, () => console.log("Backend server live on " + port));
+app.listen(port, () => console.log("Backend server live on " + port));
 
 module.exports = app;

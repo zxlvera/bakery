@@ -1,15 +1,18 @@
-import data from '../context/data.json';
+import refreshProducts from './refreshProducts';
 
-const sortProducts = (option) => {
+const sortProducts = (option, appContext) => {
+  const { products, setProducts } = appContext;
+  refreshProducts(appContext);
+
   switch (option) {
     case 'Best Rating':
-      return (data.sort((a, b) => ((a.rating > b.rating) ? 1 : -1)));
+      return (products.sort((a, b) => ((a.rating > b.rating) ? 1 : -1)));
     case 'Price: Low to High':
-      return (data.sort((a, b) => ((a.price > b.price) ? 1 : -1)));
+      return (products.sort((a, b) => ((a.price > b.price) ? 1 : -1)));
     case 'Price: High to Low':
-      return (data.sort((a, b) => ((a.price < b.price) ? 1 : -1)));
+      return (products.sort((a, b) => ((a.price < b.price) ? 1 : -1)));
     default:
-      return data;
+      return products;
   }
 };
 

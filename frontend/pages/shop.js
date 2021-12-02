@@ -25,7 +25,6 @@ export default function Items() {
   } = appContext;
 
   const handleProducts = (e) => {
-    // sortOptions.map((x) => x.current = false);
     filterProducts(e, appContext);
   };
 

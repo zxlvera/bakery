@@ -5,7 +5,6 @@ const Product = ({ product }) => {
   const {
     id, src, name, price,
   } = product;
-  console.log(product);
 
   return (
     <div>

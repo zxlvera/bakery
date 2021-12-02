@@ -19,7 +19,7 @@ const Item = () => {
     name: 'empty', src: '', qty: 0, price: 0,
   };
   if (id) {
-    item = products.find((x) => (x.id) === parseInt(id));
+    item = products.find((x) => (x.id) === id);
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { ProductsContext } from '../context';
@@ -6,7 +6,7 @@ import Button from './Button';
 
 const StickyCart = () => {
   const {
-    cartItemsList, setCartItemsList, cartTotalQty, setCartTotalQty,
+    cartItemsList, cartTotalQty,
   } = useContext(ProductsContext);
 
   const getCheckoutTotal = () => {

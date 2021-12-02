@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import data from './data.json';
+import axios from 'axios';
 import categories from './categories.json';
 
 const ProductsContext = React.createContext();
@@ -8,16 +7,10 @@ const ProductsContext = React.createContext();
 const ProductsProvider = (props) => {
   const [products, setProducts] = useState([]);
   useEffect(async () => {
-    Axios({
-      method: 'GET',
-      url: 'http://localhost:8080/',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      console.log(res.data.products);
-      setProducts(res.data.products);
-    });
+    axios.get('http://localhost:3001/')
+      .then((res) => {
+        setProducts(res.data.products);
+      });
   }, []);
   const [subCategories, setSubCategories] = useState(categories);
   const [cartItemsList, setCartItemsList] = useState([]);

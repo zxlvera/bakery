@@ -1,3 +1,4 @@
+const { uuid } = require('uuidv4');
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -7,7 +8,7 @@ exports.seed = function(knex) {
       return knex('products').insert(
         [
           {
-            "id": "1",
+            "id": uuid(),
             "type": "croissants",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/croissants-1_curtch.jpg",
             "name": "Orignal Croissant",
@@ -15,7 +16,7 @@ exports.seed = function(knex) {
             "rating": "4.9"
           },
           {
-            "id": "2",
+            "id": uuid(),
             "type": "croissants",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/croissants-2_acrz4r.jpg",
             "name": "Chocolate Croissant",
@@ -23,7 +24,7 @@ exports.seed = function(knex) {
             "rating": "4.7"
           },
           {
-            "id": "3",
+            "id": uuid(),
             "type": "croissants",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392191/bakery/croissants-3_byfw5c.jpg",
             "name": "Almond Croissant",
@@ -31,7 +32,7 @@ exports.seed = function(knex) {
             "rating": "4.4"
           },
           {
-            "id": "4",
+            "id": uuid(),
             "type": "croissants",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/croissants-4_uk1tzi.jpg",
             "name": "Trio Croissants",
@@ -39,7 +40,7 @@ exports.seed = function(knex) {
             "rating": "4.5"
           },
           {
-            "id": "5",
+            "id": uuid(),
             "type": "cupcakes",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/cupcakes-1_xdgw9k.jpg",
             "name": "Love Cupcake",
@@ -47,7 +48,7 @@ exports.seed = function(knex) {
             "rating": "4.3"
           },
           {
-            "id": "6",
+            "id": uuid(),
             "type": "cupcakes",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392191/bakery/cupcakes-2_wawk6d.jpg",
             "name": "Fruit Cupcake",
@@ -55,7 +56,7 @@ exports.seed = function(knex) {
             "rating": "4.5"
           },
           {
-            "id": "7",
+            "id": uuid(),
             "type": "cupcakes",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392191/bakery/cupcakes-3_qmeh9h.jpg",
             "name": "GreenRose Cupcake",
@@ -63,7 +64,7 @@ exports.seed = function(knex) {
             "rating": "4.8"
           },
           {
-            "id": "8",
+            "id": uuid(),
             "type": "cookies",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/cookies-1_xi4isr.jpg",
             "name": "Macarons",
@@ -71,7 +72,7 @@ exports.seed = function(knex) {
             "rating": "4.1"
           },
           {
-            "id": "9",
+            "id": uuid(),
             "type": "cookies",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/cookies-2_uwchip.jpg",
             "name": "Chocolate Cookies",
@@ -79,7 +80,7 @@ exports.seed = function(knex) {
             "rating": "4.3"
           },
           {
-            "id": "10",
+            "id": uuid(),
             "type": "cookies",
             "src": "https://res.cloudinary.com/zxlim9/image/upload/v1637392190/bakery/cookies-3_yvrcbz.jpg",
             "name": "Gingerbread ",
