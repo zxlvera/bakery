@@ -7,12 +7,27 @@ import refreshProducts from '../lib/refreshProducts';
 import Button from '../components/Button';
 
 const Basic = () => {
-  <a href="/api/auth/logout">Logout</a>;
   const [addItemStatus, setAddItemStatus] = useState(false);
   const appContext = useContext(ProductsContext);
   const {
     products, subCategories,
   } = appContext;
+
+  const deleteItem = async (e, values) => {
+    e.preventDefault();
+    await axios.delete('http://localhost:3001/', { data: { id: values } }).then((res) => {
+      refreshProducts(appContext);
+      setAddItemStatus(true);
+    });
+  };
+
+  const updateItem = async (e, values) => {
+    e.preventDefault();
+    await axios.put('http://localhost:3001/', { id: values }).then((res) => {
+      refreshProducts(appContext);
+      setAddItemStatus(true);
+    });
+  };
 
   return (
     <div>
@@ -92,6 +107,27 @@ const Basic = () => {
               </Link>
             </div>
           )}
+      <table className="table-auto">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((p) => (
+            <tr>
+              <td>
+                <button onClick={(e) => updateItem(e, p.id)}>✏️</button>
+                <button onClick={(e) => deleteItem(e, p.id)}>❌</button>
+              </td>
+              <td>{p.name}</td>
+              <td>{p.price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

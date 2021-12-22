@@ -3,8 +3,6 @@ const router = express.Router()
 const queries = require("../data/queries.js");
 const { uuid } = require('uuidv4');
 
-/* GET home page. */
-
 router.get('/', async (req, res) => {
   queries.getAll().then((products) => {
     res.json({ products });
@@ -17,9 +15,21 @@ router.post("/", (req, res, next) => {
   req.body.price = Math.random() * 50
   req.body.rating = Math.random() * 5 
   queries.create(req.body).then((products) => {
-    console.log(products);
     res.status(201).send('');
   });
 });
 
+router.put("/", (req, res, next) => {
+  req.body.price = Math.random() * 50
+  req.body.rating = Math.random() * 5 
+  queries.update(req.body.id, req.body).then((products) => {
+    res.status(201).send('');
+  });
+});
+
+router.delete("/", (req, res, next) => {
+  queries.delete(req.body.id).then((products) => {
+    res.status(201).send('');
+  });
+});
 module.exports = router;
