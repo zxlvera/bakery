@@ -25,13 +25,11 @@ const StickyCart = () => {
       && (
       <Popover className="relative flex justify-center">
         <div className="w-1/4 flex justify-evenly items-center">
-          <Link href="/cart" passHref>
-            <h1 className="underline hover:cursor-pointer">
-              {cartTotalQty}
-              {' '}
-              Items
-            </h1>
-          </Link>
+          <h1>
+            {cartTotalQty}
+            {' '}
+            Items
+          </h1>
           <div>
             <h1>
               {' '}
@@ -39,7 +37,7 @@ const StickyCart = () => {
               {getCheckoutTotal()}
             </h1>
           </div>
-          <Link href="/cart" passHref>
+          <Link href="/preview" passHref>
             <div>
               <Button text="Checkout" />
             </div>
